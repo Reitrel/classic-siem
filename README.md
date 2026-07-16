@@ -17,31 +17,29 @@ Classic SIEM — это лёгкая, быстрая и прозрачная SIE
 ---
 
 ## 📂 Структура проекта
+
+```text
 classic-siem/
 ├── src/
-│ ├── collector.sh # Сбор логов из /var/log/
-│ ├── normalizer.sh # Нормализация событий (в разработке)
-│ └── correlator.sh # Корреляция и правила (в плане)
-├── logs/ # Собранные логи
+│   ├── collector.sh        # Сбор логов из /var/log/
+│   ├── normalizer.sh       # Нормализация событий (в разработке)
+│   └── correlator.sh       # Корреляция и правила (в плане)
+├── logs/                   # Собранные логи
 ├── config/
-│ └── settings.conf # Настройки
+│   └── settings.conf       # Настройки
 └── README.md
 
-
----
-
-## ⚙️ Быстрый старт
-
+⚙️ Быстрый старт
 Клонируй репозиторий и запусти сбор логов:
 
-```bash
+bash
 git clone https://github.com/Reitre1/classic-siem.git
 cd classic-siem
 chmod +x src/collector.sh
 ./src/collector.sh
 
 
-📌 **Статус разработки**
+📌 Статус разработки
 Модуль	      Статус
 Collector	    ✅ Готов
 Normalizer	  ⏳ В разработке
@@ -49,15 +47,14 @@ Correlator	  📋 Запланирован
 Alerter	      📋 Запланирован
 Web-интерфейс	📋 Запланирован
 
-
-📬** Контакты**
+📬 Контакты
 Сайт: classic-siem.ru
 Почта: support@classic-siem.ru
 VK: SIEM Navigation
-Dzen: Канал на Dzen
+Дзен: Канал на Дзен
+GitHub: Reitre1/classic-siem
 
-
-📜 **Лицензия**
+📜 Лицензия
 Проект распространяется под лицензией GNU General Public License v3.0.
 
-**Сделано на Bash. Для тех, кто ценит скорость и контроль.**
+Сделано на Bash. Для тех, кто ценит скорость и контроль.
