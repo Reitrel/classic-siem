@@ -30,7 +30,7 @@ classic-siem/
 └── README.md
 ```
 
----
+---  
 
 
 ## ⚙️ Быстрый старт  
@@ -43,19 +43,19 @@ chmod +x src/collector.sh
 ./src/collector.sh  
 
 
----
+---  
 
 
 ## 📌 Статус разработки
-Модуль	Статус
-Collector	✅ Готов
-Normalizer	⏳ В разработке
-Correlator	📋 Запланирован
-Alerter	📋 Запланирован
-Web-интерфейс	📋 Запланирован
+Модуль	      Статус  
+Collector	    ✅ Готов  
+Normalizer	  ⏳ В разработке  
+Correlator	  📋 Запланирован  
+Alerter       📋 Запланирован  
+Web-интерфейс	📋 Запланирован  
 
 
----
+---  
 
 
 ## 📬 Контакты
