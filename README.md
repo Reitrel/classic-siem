@@ -27,7 +27,8 @@ classic-siem/
 ├── logs/                   # Собранные логи
 ├── config/
 │   └── settings.conf       # Настройки
-└── README.md```
+└── README.md
+```
 
 ---  
 
