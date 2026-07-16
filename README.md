@@ -29,16 +29,21 @@ classic-siem/
 │   └── settings.conf       # Настройки
 └── README.md
 ```
+
 ---
+
 
 ## ⚙️ Быстрый старт  
 Клонируй репозиторий и запусти сбор логов:  
 
 bash  
-git clone https://github.com/Reitre1/classic-siem.git  
+git clone https://github.com/Reitrel/classic-siem.git  
 cd classic-siem  
 chmod +x src/collector.sh  
 ./src/collector.sh  
+
+
+---
 
 
 ## 📌 Статус разработки
@@ -48,6 +53,7 @@ Normalizer	⏳ В разработке
 Correlator	📋 Запланирован
 Alerter	📋 Запланирован
 Web-интерфейс	📋 Запланирован
+
 
 ---
 
