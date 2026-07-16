@@ -31,14 +31,14 @@ classic-siem/
 ```
 ---
 
-## ⚙️ Быстрый старт
-Клонируй репозиторий и запусти сбор логов:
+## ⚙️ Быстрый старт  
+Клонируй репозиторий и запусти сбор логов:  
 
-bash
-git clone https://github.com/Reitre1/classic-siem.git
-cd classic-siem
-chmod +x src/collector.sh
-./src/collector.sh
+bash  
+git clone https://github.com/Reitre1/classic-siem.git  
+cd classic-siem  
+chmod +x src/collector.sh  
+./src/collector.sh  
 
 
 ## 📌 Статус разработки
