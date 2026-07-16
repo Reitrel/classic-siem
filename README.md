@@ -28,7 +28,10 @@ classic-siem/
 ├── config/
 │   └── settings.conf       # Настройки
 └── README.md
-⚙️ Быстрый старт
+
+---
+
+# ⚙️ Быстрый старт
 Клонируй репозиторий и запусти сбор логов:
 
 bash
@@ -43,16 +46,17 @@ Normalizer	⏳ В разработке
 Correlator	📋 Запланирован
 Alerter	📋 Запланирован
 Web-интерфейс	📋 Запланирован
-📬 Контакты
+
+---
+
+
+# 📬 Контакты
 Сайт: classic-siem.ru
-
 Почта: support@classic-siem.ru
-
 VK: SIEM Navigation
-
 Дзен: Канал на Дзен
-
 GitHub: Reitre1/classic-siem
+
 
 📜 Лицензия
 Проект распространяется под лицензией GNU General Public License v3.0.
