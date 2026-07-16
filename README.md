@@ -37,9 +37,13 @@ classic-siem/
 Клонируй репозиторий и запусти сбор логов:  
 `
 bash  
+
 git clone https://github.com/Reitrel/classic-siem.git  
+
 cd classic-siem  
+
 chmod +x src/collector.sh  
+
 ./src/collector.sh  
 `
 
