@@ -41,8 +41,9 @@ chmod +x src/collector.sh
 ./src/collector.sh
 
 
+---
 
-📌 Статус разработки
+## 📌 Статус разработки
 Модуль	      Статус
 Collector	    ✅ Готов
 Normalizer	  ⏳ В разработке
