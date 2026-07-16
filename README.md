@@ -53,14 +53,10 @@ Web-интерфейс	📋 Запланирован
 
 
 ## 📬 Контакты
-Сайт: classic-siem.ru
-
+[Сайт: classic-siem.ru](https://classic-siem.ru/)
 Почта: support@classic-siem.ru
-
 VK: SIEM Navigation
-
 Дзен: Канал на Дзен
-
 GitHub: Reitre1/classic-siem
 
 
