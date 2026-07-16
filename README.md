@@ -57,7 +57,7 @@ Web-интерфейс	📋 Запланирован
 - **Почта:** [support@classic-siem.ru](mailto:support@classic-siem.ru)  
 - **VK:** [SIEM Navigation](https://vk.com/cyber_siem)  
 - **Дзен:** [Канал на Дзен](https://dzen.ru/a/akZNi6H1F0km-5yk)  
-- **GitHub:** [Reitre1/classic-siem](https://github.com/Reitre1/classic-siem)
+- **GitHub:** [Reitrel/classic-siem](https://github.com/Reitre1/classic-siem)
 
 
 
