@@ -35,8 +35,7 @@ classic-siem/
 
 ## ⚙️ Быстрый старт  
 Клонируй репозиторий и запусти сбор логов:  
-```
-bash  
+```bash  
 git clone https://github.com/Reitrel/classic-siem.git  
 cd classic-siem  
 chmod +x src/collector.sh  
@@ -47,12 +46,13 @@ chmod +x src/collector.sh
 
 
 ## 📌 Статус разработки
-Модуль	      Статус  
-Collector	    ✅ Готов  
-Normalizer	  ⏳ В разработке  
-Correlator	  📋 Запланирован  
-Alerter       📋 Запланирован  
-Web-интерфейс	📋 Запланирован  
+| Модуль	|      Статус  |
+|-------------|---------------|
+|Collector	  |  ✅ Готов  |
+|Normalizer	  |⏳ В разработке  |
+|Correlator	  |📋 Запланирован  |
+|Alerter      |📋 Запланирован  |
+|Web-интерфейс	|📋 Запланирован  |
 
 
 ---  
