@@ -29,7 +29,9 @@ classic-siem/
 │   └── settings.conf       # Настройки
 └── README.md
 
-⚙️ Быстрый старт
+---
+
+## ⚙️ Быстрый старт
 Клонируй репозиторий и запусти сбор логов:
 
 bash
@@ -38,7 +40,7 @@ cd classic-siem
 chmod +x src/collector.sh
 ./src/collector.sh
 
----
+
 
 📌 Статус разработки
 Модуль	      Статус
