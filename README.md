@@ -65,7 +65,7 @@ Web-интерфейс	📋 Запланирован
 - **Дзен:** [Канал на Дзен](https://dzen.ru/a/akZNi6H1F0km-5yk)  
 - **GitHub:** [Reitrel/classic-siem](https://github.com/Reitre1/classic-siem)
 
+---
 
-
-📜 Лицензия
+📜 **Лицензия**
 Проект распространяется под лицензией GNU General Public License v3.0.
