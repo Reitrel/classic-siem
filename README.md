@@ -38,6 +38,7 @@ cd classic-siem
 chmod +x src/collector.sh
 ./src/collector.sh
 
+---
 
 📌 Статус разработки
 Модуль	      Статус
