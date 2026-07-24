@@ -153,12 +153,12 @@ show_statistics
 print_msg "info" "Сбор логов завершён успешно! Файл сохранён: $OUTPUT_FILE"
 
 # Очистка экрана после завершения (только для терминала)
-if [ "$USE_DIALOG" = false ]; then
     clear
+
     echo "======================================"
     echo "  Classic SIEM Collector v0.1.1"
     echo "======================================"
     echo "[SUCCESS] Логи сохранены в: $OUTPUT_FILE"
     echo "[INFO] Всего собрано строк: $LINES"
     echo "======================================"
-fi
+
