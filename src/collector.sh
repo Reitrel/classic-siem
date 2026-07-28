@@ -104,8 +104,6 @@ collect_logs() {
             echo "[WARN] Файл не найден: $LOG_DIR/$file"
         fi
     done
-
-    print_msg "info" "Сбор завершён! Логи сохранены в: $OUTPUT_FILE"
 }
 
 # 3. Подсчёт строк
