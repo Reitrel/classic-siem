@@ -20,18 +20,24 @@ Classic SIEM — это лёгкая, быстрая и прозрачная SIE
 
 ```text
 classic-siem/
-├── demo/               # Видео-демонстрация работы
-├── logs/               # Собранные логи (не в репозитории)
-├── screenshots/        # Скриншоты работы
-├── src/                # Исходный код
-│   └── collector.sh    # Модуль сбора логов
-├── tests/              # Автоматические тесты
-│   └── test_collector.sh
-├── .gitignore          # Исключённые файлы
-├── LICENSE             # Лицензия GPL v3.0
-└── README.md           # Описание проекта
+├── demo/                   # Демонстрационное видео работы
+│   └── collector_demo.mp4
+├── screenshots/            # Скриншоты интерфейса и тестов
+│   ├── 01_welcome.png
+│   ├── 02_progress.png
+│   ├── 03_stats.png
+│   ├── 04_complete.png
+│   ├── 05_logs_sample.png
+│   └── 07_test_collector.png
+├── src/                    # Исходный код модулей
+│   └── collector.sh        # ✅ Сбор логов из /var/log/
+├── tests/                  # Автоматические тесты
+│   └── test_collector.sh   # Тесты для проверки collector.sh
+├── logs/                   # Собранные логи (игнорируется Git)
+├── .gitignore              # Файлы, исключённые из Git
+├── LICENSE                 # GNU General Public License v3.0
+└── README.md               # Описание проекта
 ```
-
 ---  
 
 
