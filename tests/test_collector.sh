@@ -87,8 +87,10 @@ echo "==========================================================================
 if [ $ERRORS -eq 0 ]; then
     echo "ALL TESTS PASSED SUCCESSFULLY!!!"
     echo "Classic SIEM is working correctly!"
+    exit 0
 else
     echo "Errors detected: $ERRORS"
+    exit 1
 fi
 echo "=============================================================================================="
 echo ""
