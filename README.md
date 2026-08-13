@@ -101,7 +101,7 @@ https://screenshots/07_test_collector.png
 ## 📸 Демонстрация работы
 
 ### 1. Приветственное окно
-![Приветствие](screenshots/01_welcome.png)
+![Приветствие]([screenshots/01_welcome.png](https://github.com/Reitrel/classic-siem/blob/main/screenshots/01_welcome.png)
 
 ### 2. Прогресс сбора логов
 ![Прогресс сбора](screenshots/02_progress.png)
