@@ -54,6 +54,7 @@ cd classic-siem
 chmod +x src/collector.sh
 ./src/collector.sh
 ```
+
 ---
 
 ## 📌 Статус разработки
@@ -70,7 +71,7 @@ Web-интерфейс	📋 Запланирован	—
 Проект включает автоматические тесты для проверки работоспособности модулей.
 
 ### Что проверяется
-Тест test_collector.sh выполняет следующие проверки:
+Тест _test_collector.sh_ выполняет следующие проверки:
 
 |№  | Проверка | Что делает |
 |:---:|----------|------------|
@@ -80,8 +81,10 @@ Web-интерфейс	📋 Запланирован	—
 |4	|Создание лог-файла |	Запускает collector.sh и проверяет, что создался файл с логами |
 
 ### Запуск тестов
-```Bash cd classic-siem
-./tests/test_collector.sh```
+```Bash
+cd classic-siem
+./tests/test_collector.sh
+```
 
 ### Ожидаемый результат
 Все проверки должны быть пройдены успешно:
@@ -116,9 +119,10 @@ https://screenshots/06_logs_sample.png
 
 Видео: работа Classic SIEM Collector
 https://demo/collector_demo.wmv
+
 ---
 
-##📬 Контакты
+## 📬 Контакты
 Сайт: classic-siem.ru 
 Почта: support@classic-siem.ru
 VK: SIEM Navigation 
@@ -128,7 +132,7 @@ GitHub: Reitrel/classic-siem
 
 ---
 
-##📜 Лицензия
+## 📜 Лицензия
 Проект распространяется под лицензией GNU General Public License v3.0.
 
 Сделано на Bash. Для тех, кто ценит скорость и контроль.
