@@ -132,8 +132,7 @@ cd classic-siem
 ## 📸 Демонстрация работы **Normalizer.sh**
 
 ### 1. Запуск и результат **Normalizer.sh**
-![Запуск Normalizer](screenshots/normalizer_start.png)
-
+![Запуск Normalizer](https://github.com/Reitrel/classic-siem/blob/main/screenshots/1.%20normalizer_start.png)
 
 
 ---
