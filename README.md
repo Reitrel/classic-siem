@@ -122,7 +122,7 @@ cd classic-siem
 ### 6. Пример собранных логов: 
 ![Пример логов](https://github.com/Reitrel/classic-siem/blob/main/screenshots/06_logs_sample.png)  
 
-## 🎥 Видиодемонстрация модуля **collector.sh**
+## 🎥 Видеодемонстрация модуля **collector.sh**
 
 [Видео: работа Classic SIEM Collector](https://github.com/Reitrel/classic-siem/blob/main/demo/collector_demo.wmv)
 
