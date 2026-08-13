@@ -100,17 +100,17 @@ cd classic-siem
 
 ## 📸 Демонстрация работы модуля **collector.sh**
 
-1. Приветственное окно: 
+### 1. Приветственное окно: 
 ![Приветствие](https://github.com/Reitrel/classic-siem/blob/main/screenshots/01_welcome.png)  
-2. Прогресс сбора логов: 
+### 2. Прогресс сбора логов: 
 ![Прогресс сбора](https://github.com/Reitrel/classic-siem/blob/main/screenshots/02_progress.png)  
-3. Статистика по данным: 
+### 3. Статистика по данным: 
 ![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots/03_stats.png)  
-4. Статистика по файлам: 
+### 4. Статистика по файлам: 
 ![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots/04_stats.png)  
-5. Завершение работы: 
+### 5. Завершение работы: 
 ![Завершение](https://github.com/Reitrel/classic-siem/blob/main/screenshots/05_complete.png)  
-6. Пример собранных логов: 
+### 6. Пример собранных логов: 
 ![Пример логов](https://github.com/Reitrel/classic-siem/blob/main/screenshots/06_logs_sample.png)  
 
 ## 🎥 Видиодемонстрация модуля **collector.sh**
