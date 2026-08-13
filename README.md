@@ -92,7 +92,7 @@ cd classic-siem
 
 Все проверки должны быть пройдены успешно: 
 
-[https://screenshots/07_test_collector.png ](https://github.com/Reitrel/classic-siem/blob/main/screenshots/07_test_collector.png)
+[Скриншот результата ](https://github.com/Reitrel/classic-siem/blob/main/screenshots/07_test_collector.png)
 
 Если какая-то проверка не пройдена — тест укажет на проблему и завершится с кодом ошибки. 
 
