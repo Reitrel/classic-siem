@@ -22,6 +22,7 @@ Classic SIEM — это лёгкая, быстрая и прозрачная SIE
 - **AWK** — высокопроизводительный парсер логов (1M+ строк/сек)
 - **Linux** — системные логи, среда выполнения
 - **Git** — контроль версий
+- **Cron** — автоматизация задач по расписанию (в плане)
 
 ---
 
@@ -130,20 +131,20 @@ cd classic-siem
 
 ## 📸 Демонстрация работы **Normalizer.sh**
 
-### 1. Запуск Normalizer
+### 1. Запуск и результат **Normalizer.sh**
 ![Запуск Normalizer](screenshots/normalizer_start.png)
 
-### 2. Результат работы Normalizer
-![Результат Normalizer](screenshots/normalizer_result.png)
+
 
 ---
 
-## 📬 Контакты 
-**Сайт**: classic-siem.ru  
-__Почта:__ support@classic-siem.ru  
-**VK:** SIEM Navigation  
-**Дзен:** Канал на Дзен  
-**GitHub:** Reitrel/classic-siem  
+## 📬 Контакты
+
+- **Сайт:** [classic-siem.ru](https://classic-siem.ru)
+- **Почта:** [support@classic-siem.ru](mailto:support@classic-siem.ru)
+- **VK:** [SIEM Navigation](https://vk.com/cyber_siem)
+- **Дзен:** [Канал на Дзен](https://dzen.ru/a/akZNi6H1F0km-5yk)
+- **GitHub:** [Reitrel/classic-siem](https://github.com/Reitrel/classic-siem) 
 
 
 ---
