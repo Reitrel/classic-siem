@@ -107,20 +107,20 @@ https://screenshots/07_test_collector.png
 ![Прогресс сбора](https://github.com/Reitrel/classic-siem/blob/main/screenshots/02_progress.png)
 
 ### 3. Статистика по данным
-![Статистика]([screenshots](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/03_stats.png)
+![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/03_stats.png)
 
 ### 4. Статистика по файлам
-![Статистика]([screenshots](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/04_stats.png)
+![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/04_stats.png)
 
 ### 5. Завершение работы
-![Завершение]([screenshots](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/05_complete.png)
+![Завершение](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/05_complete.png)
 
 ### 6. Пример собранных логов
-![Пример логов]([screenshots](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/06_logs_sample.png)
+![Пример логов](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/06_logs_sample.png)
 
 ## 🎥 Видеодемонстрация
 
-[Видео: работа Classic SIEM Collector]([demo/collector_demo.wmv](https://github.com/Reitrel/classic-siem/blob/main/demo/collector_demo.wmv))
+[Видео: работа Classic SIEM Collector](https://github.com/Reitrel/classic-siem/blob/main/demo/collector_demo.wmv)
 
 ---
 
