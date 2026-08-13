@@ -48,10 +48,10 @@ classic-siem/
 ## ⚙️ Быстрый старт
 Клонируй репозиторий и запусти сбор логов:
 
-git clone https://github.com/Reitrel/classic-siem.git
+```Bash git clone https://github.com/Reitrel/classic-siem.git
 cd classic-siem
 chmod +x src/collector.sh
-./src/collector.sh
+./src/collector.sh```
 
 ---
 
@@ -79,8 +79,8 @@ Web-интерфейс	📋 Запланирован	—
 |4	|Создание лог-файла |	Запускает collector.sh и проверяет, что создался файл с логами |
 
 ### Запуск тестов
-cd classic-siem
-./tests/test_collector.sh
+```Bash cd classic-siem
+./tests/test_collector.sh```
 
 ### Ожидаемый результат
 Все проверки должны быть пройдены успешно:
