@@ -89,44 +89,44 @@ cd classic-siem
 ```
 
 ### Ожидаемый результат 
+
 Все проверки должны быть пройдены успешно: 
+
 https://screenshots/07_test_collector.png 
+
 Если какая-то проверка не пройдена — тест укажет на проблему и завершится с кодом ошибки. 
 
 ---
 
 ## 📸 Демонстрация работы
-Ниже представлены скриншоты, иллюстрирующие процесс работы модуля Collector в Classic SIEM.
 
-1. Приветственное окно
-https://screenshots/01_welcome.png
+### 1. Приветственное окно
+![Приветствие](screenshots/01_welcome.png)
 
-2. Прогресс сбора логов
-https://screenshots/02_progress.png
+### 2. Прогресс сбора логов
+![Прогресс сбора](screenshots/02_progress.png)
 
-3. Статистика по данным
-https://screenshots/03_stats.png
+### 3. Статистика по данным
+![Статистика](screenshots/03_stats.png)
 
-4. Статистика по файлам
-https://screenshots/04_stats.png
+### 4. Статистика по файлам
+![Статистика](screenshots/04_stats.png)
 
-5. Завершение работы
-https://screenshots/05_complete.png
+### 5. Завершение работы
+![Завершение](screenshots/05_complete.png)
 
-6. Пример собранных логов
-https://screenshots/06_logs_sample.png
+### 6. Пример собранных логов
+![Пример логов](screenshots/06_logs_sample.png)
 
-## 🎥 Видиодемонстрация
-Полный процесс работы модуля Collector можно посмотреть на видео:
+## 🎥 Видеодемонстрация
 
-Видео: работа Classic SIEM Collector
-https://demo/collector_demo.wmv
+[Видео: работа Classic SIEM Collector](demo/collector_demo.wmv)
 
 ---
 
-## 📬 Контакты
+## 📬 Контакты 
 Сайт: classic-siem.ru 
-Почта: support@classic-siem.ru
+Почта: support@classic-siem.ru 
 VK: SIEM Navigation 
 Дзен: Канал на Дзен 
 GitHub: Reitrel/classic-siem 
