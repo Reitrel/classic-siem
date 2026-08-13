@@ -39,7 +39,7 @@ classic-siem/
 │   ├── 04_stats.png
 │   ├── 05_complete.png
 │   ├── 06_logs_sample.png
-│   └── 07_test_collector.png
+│   ├── 07_test_collector.png
 |   └── 01_normalizer_start.png
 ├── src/                    # Исходный код модулей
 │   ├── collector.sh        # ✅ Сбор логов из /var/log/
@@ -133,7 +133,7 @@ cd classic-siem
 ## 📸 Демонстрация работы **Normalizer**
 
 ### 1. Запуск и результат **normalizer.sh**
-![Запуск Normalizer](https://github.com/Reitrel/classic-siem/blob/main/screenshots/1.%20normalizer_start.png)
+![Запуск Normalizer](https://github.com/Reitrel/classic-siem/blob/main/screenshots/01_normalizer_start.png)
 
 
 ---
