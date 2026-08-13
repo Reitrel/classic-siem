@@ -125,11 +125,11 @@ cd classic-siem
 ---
 
 ## 📬 Контакты 
-Сайт: classic-siem.ru  
-Почта: support@classic-siem.ru  
-VK: SIEM Navigation  
-Дзен: Канал на Дзен  
-GitHub: Reitrel/classic-siem  
+**Сайт:** classic-siem.ru  
+**Почта:** support@classic-siem.ru  
+**VK:** SIEM Navigation  
+**Дзен:** Канал на Дзен  
+**GitHub:** Reitrel/classic-siem  
 
 
 ---
