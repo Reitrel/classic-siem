@@ -102,7 +102,7 @@ cd classic-siem
 
 Все проверки должны быть пройдены успешно: 
 
-[Скриншот результата ](https://github.com/Reitrel/classic-siem/blob/main/screenshots/07_test_collector.png)
+![Скриншот результата ](https://github.com/Reitrel/classic-siem/blob/main/screenshots/07_test_collector.png)
 
 Если какая-то проверка не пройдена — тест укажет на проблему и завершится с кодом ошибки. 
 
@@ -129,9 +129,9 @@ cd classic-siem
 
 ---
 
-## 📸 Демонстрация работы **Normalizer.sh**
+## 📸 Демонстрация работы **Normalizer**
 
-### 1. Запуск и результат **Normalizer.sh**
+### 1. Запуск и результат **normalizer.sh**
 ![Запуск Normalizer](https://github.com/Reitrel/classic-siem/blob/main/screenshots/1.%20normalizer_start.png)
 
 
