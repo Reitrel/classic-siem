@@ -92,7 +92,7 @@ cd classic-siem
 
 Все проверки должны быть пройдены успешно: 
 
-https://screenshots/07_test_collector.png 
+[https://screenshots/07_test_collector.png ](https://github.com/Reitrel/classic-siem/blob/main/screenshots/07_test_collector.png)
 
 Если какая-то проверка не пройдена — тест укажет на проблему и завершится с кодом ошибки. 
 
@@ -107,16 +107,16 @@ https://screenshots/07_test_collector.png
 ![Прогресс сбора](https://github.com/Reitrel/classic-siem/blob/main/screenshots/02_progress.png)
 
 ### 3. Статистика по данным
-![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/03_stats.png)
+![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots/03_stats.png)
 
 ### 4. Статистика по файлам
-![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/04_stats.png)
+![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots/04_stats.png)
 
 ### 5. Завершение работы
-![Завершение](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/05_complete.png)
+![Завершение](https://github.com/Reitrel/classic-siem/blob/main/screenshots/05_complete.png)
 
 ### 6. Пример собранных логов
-![Пример логов](https://github.com/Reitrel/classic-siem/blob/main/screenshots)/06_logs_sample.png)
+![Пример логов](https://github.com/Reitrel/classic-siem/blob/main/screenshots/06_logs_sample.png)
 
 ## 🎥 Видеодемонстрация
 
