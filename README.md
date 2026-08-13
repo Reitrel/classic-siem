@@ -40,6 +40,7 @@ classic-siem/
 │   ├── 05_complete.png
 │   ├── 06_logs_sample.png
 │   └── 07_test_collector.png
+|   └── 01_normalizer_start.png
 ├── src/                    # Исходный код модулей
 │   ├── collector.sh        # ✅ Сбор логов из /var/log/
 │   └── normalizer.sh       # ✅ Нормализация в JSON (AWK, 1M+ строк/сек)
