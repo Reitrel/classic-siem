@@ -48,11 +48,12 @@ classic-siem/
 ## ⚙️ Быстрый старт
 Клонируй репозиторий и запусти сбор логов:
 
-```Bash git clone https://github.com/Reitrel/classic-siem.git
+```Bash
+git clone https://github.com/Reitrel/classic-siem.git
 cd classic-siem
 chmod +x src/collector.sh
-./src/collector.sh```
-
+./src/collector.sh
+```
 ---
 
 ## 📌 Статус разработки
