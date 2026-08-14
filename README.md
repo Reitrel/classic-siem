@@ -20,6 +20,7 @@ Classic SIEM — это лёгкая, быстрая и прозрачная SIE
 
 - **Bash** — управление модулями, автоматизация
 - **AWK** — высокопроизводительный парсер логов (1M+ строк/сек)
+- **jq** — проверка и форматирование JSON
 - **Linux** — системные логи, среда выполнения
 - **Git** — контроль версий
 - **Cron** — автоматизация задач по расписанию (в плане)
@@ -40,12 +41,14 @@ classic-siem/
 │   ├── 05_complete.png
 │   ├── 06_logs_sample.png
 │   ├── 07_test_collector.png
-|   └── 01_normalizer_start.png
+│   ├── 01_normalizer_start.png
+│   └── 01_test_normalizer.png
 ├── src/                    # Исходный код модулей
 │   ├── collector.sh        # ✅ Сбор логов из /var/log/
 │   └── normalizer.sh       # ✅ Нормализация в JSON (AWK, 1M+ строк/сек)
 ├── tests/                  # Автоматические тесты
-│   └── test_collector.sh   # Тесты для проверки collector.sh
+│   ├── test_collector.sh   # Тесты для проверки collector.sh
+│   └── test_normalizer.sh  # Тесты для проверки normalizer.sh
 ├── logs/                   # Собранные логи (игнорируется Git)
 ├── config/
 │   └── settings.conf       # Настройки (в плане)
@@ -57,14 +60,19 @@ classic-siem/
 ---
 
 ## ⚙️ Быстрый старт
+
 Клонируй репозиторий и запусти сбор логов:
 
-```Bash
+```bash
 git clone https://github.com/Reitrel/classic-siem.git
 cd classic-siem
 chmod +x src/collector.sh
 ./src/collector.sh
 ```
+
+После сбора логов запусти нормализацию:
+chmod +x src/normalizer.sh
+./src/normalizer.sh
 
 ---
 
@@ -73,7 +81,7 @@ chmod +x src/collector.sh
 | Модуль | Статус | Производительность |
 |--------|--------|-------------------|
 | Collector | ✅ Готов | — |
-| Normalizer | ✅ Готов (v0.2.0) | **~1 182 000 строк/сек** |
+| Normalizer | ✅ Готов (v0.2.2) | **~1 550 000 строк/сек** |
 | Correlator | 📋 Запланирован | — |
 | Alerter | 📋 Запланирован | — |
 | Web-интерфейс | 📋 Запланирован | — |
@@ -81,60 +89,93 @@ chmod +x src/collector.sh
 ---
 
 ## 🧪 Тестирование
-Проект включает автоматические тесты для проверки работоспособности модулей. 
 
-### Что проверяется
-Тест _test_collector.sh_ выполняет следующие проверки: 
+Проект включает автоматические тесты для проверки работоспособности модулей.
 
-|№  | Проверка | Что делает |
+### Тестирование Collector
+
+Тест `test_collector.sh` выполняет следующие проверки:
+
+| № | Проверка | Что делает |
 |:---:|----------|------------|
-|1	|Наличие файла |	Проверяет, существует ли src/collector.sh |
-|2	|Права на выполнение |	Проверяет, есть ли у файла права +x. Если нет — добавляет |
-|3	|Директория для логов |	Проверяет, существует ли папка logs/. Если нет — будет создана при запуске |
-|4	|Создание лог-файла |	Запускает collector.sh и проверяет, что создался файл с логами |
+| 1 | Наличие файла | Проверяет, существует ли `src/collector.sh` |
+| 2 | Права на выполнение | Проверяет, есть ли у файла права `+x`. Если нет — добавляет |
+| 3 | Директория для логов | Проверяет, существует ли папка `logs/`. Если нет — будет создана при запуске |
+| 4 | Создание лог-файла | Запускает `collector.sh` и проверяет, что создался файл с логами |
 
-### Запуск тестов
-```Bash
-cd classic-siem
+**Запуск:**
+
+```bash
 ./tests/test_collector.sh
 ```
 
-### Ожидаемый результат 
+**Ожидаемый результат:**
 
-Все проверки должны быть пройдены успешно: 
+Все проверки должны быть пройдены успешно:
 
-![Скриншот результата ](https://github.com/Reitrel/classic-siem/blob/main/screenshots/07_test_collector.png)
+![Тест Collector](screenshots/07_test_collector.png)
 
-Если какая-то проверка не пройдена — тест укажет на проблему и завершится с кодом ошибки. 
+---
+
+### Тестирование Normalizer
+
+Тест `test_normalizer.sh` выполняет следующие проверки:
+
+| № | Проверка | Что делает |
+|:---:|----------|------------|
+| 1 | Наличие файла | Проверяет, существует ли `src/normalizer.sh` |
+| 2 | Права на выполнение | Проверяет, есть ли у файла права `+x`. Если нет — добавляет |
+| 3 | Директория для JSON | Проверяет, существует ли папка `normalized/`. Если нет — будет создана при запуске |
+| 4 | Запуск нормализатора | Запускает `normalizer.sh` |
+| 5 | Создание JSON-файла | Проверяет, что создался JSON-файл |
+| 6 | Валидность JSON | Проверяет, что JSON валидный (через `jq`) |
+
+**Запуск:**
+
+```bash
+./tests/test_normalizer.sh
+```
+
+**Ожидаемый результат:**
+
+Все проверки должны быть пройдены успешно:
+
+![Тест Normalizer](screenshots/01_test_normalizer.png)
 
 ---
 
 ## 📸 Демонстрация работы модуля **collector.sh**
 
-### 1. Приветственное окно: 
-![Приветствие](https://github.com/Reitrel/classic-siem/blob/main/screenshots/01_welcome.png)  
-### 2. Прогресс сбора логов: 
-![Прогресс сбора](https://github.com/Reitrel/classic-siem/blob/main/screenshots/02_progress.png)  
-### 3. Статистика по данным: 
-![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots/03_stats.png)  
-### 4. Статистика по файлам: 
-![Статистика](https://github.com/Reitrel/classic-siem/blob/main/screenshots/04_stats.png)  
-### 5. Завершение работы: 
-![Завершение](https://github.com/Reitrel/classic-siem/blob/main/screenshots/05_complete.png)  
-### 6. Пример собранных логов: 
-![Пример логов](https://github.com/Reitrel/classic-siem/blob/main/screenshots/06_logs_sample.png)  
+### 1. Приветственное окно
+![Приветствие](screenshots/01_welcome.png)
 
-## 🎥 Видеодемонстрация модуля **collector.sh**
+### 2. Прогресс сбора логов
+![Прогресс сбора](screenshots/02_progress.png)
 
-[Видео: работа Classic SIEM Collector](https://github.com/Reitrel/classic-siem/blob/main/demo/collector_demo.wmv)
+### 3. Статистика по данным
+![Статистика](screenshots/03_stats.png)
+
+### 4. Статистика по файлам
+![Статистика](screenshots/04_stats.png)
+
+### 5. Завершение работы
+![Завершение](screenshots/05_complete.png)
+
+### 6. Пример собранных логов
+![Пример логов](screenshots/06_logs_sample.png)
 
 ---
 
-## 📸 Демонстрация работы **Normalizer**
+## 🎥 Видеодемонстрация модуля **collector.sh**
 
-### 1. Запуск и результат **normalizer.sh**
-![Запуск Normalizer](https://github.com/Reitrel/classic-siem/blob/main/screenshots/01_normalizer_start.png)
+[Видео: работа Classic SIEM Collector](demo/collector_demo.wmv)
 
+---
+
+## 📸 Демонстрация работы модуля **normalizer.sh**
+
+### 1. Запуск Normalizer
+![Запуск Normalizer](screenshots/01_normalizer_start.png)
 
 ---
 
@@ -144,16 +185,14 @@ cd classic-siem
 - **Почта:** [support@classic-siem.ru](mailto:support@classic-siem.ru)
 - **VK:** [SIEM Navigation](https://vk.com/cyber_siem)
 - **Дзен:** [Канал на Дзен](https://dzen.ru/a/akZNi6H1F0km-5yk)
-- **GitHub:** [Reitrel/classic-siem](https://github.com/Reitrel/classic-siem) 
-
+- **GitHub:** [Reitrel/classic-siem](https://github.com/Reitrel/classic-siem)
 
 ---
 
 ## 📜 Лицензия
-Проект распространяется под лицензией GNU General Public License v3.0.
 
-> Сделано на Bash и AWK. Для тех, кто ценит скорость и контроль.
-
+Проект распространяется под лицензией **GNU General Public License v3.0**.
 
 ---
 
+**Сделано на Bash и AWK. Для тех, кто ценит скорость и контроль.**
