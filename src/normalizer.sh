@@ -2,7 +2,7 @@
 
 # =======================================================================
 # Classic SIEM - Normalizer Module
-# Версия: 0.2.1
+# Версия: 0.2.2
 # Назначение: приведение собранных логов к единому формату (JSON)
 # Автор: Денис Алексеев / Classic SIEM
 # Лицензия: GNU GPL v3.0
@@ -11,15 +11,14 @@
 clear
 
 # --- ПЕРЕМЕННЫЕ ---
-INPUT_DIR="./logs"                              # Директория с собранными логами
-OUTPUT_DIR="./normalized"                       # Директория для нормализованных JSON
-TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")          # Метка времени
+INPUT_DIR="./logs"
+OUTPUT_DIR="./normalized"
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 OUTPUT_FILE="$OUTPUT_DIR/normalized_$TIMESTAMP.json"
-PROCESSED_MARKER="./processed_marker.txt"       # Файл для отслеживания обработанных логов
+PROCESSED_MARKER="./processed_marker.txt"
 
 # --- ФУНКЦИИ ---
 
-# 1. Создание выходной директории
 create_output_dir() {
     if [ ! -d "$OUTPUT_DIR" ]; then
         mkdir -p "$OUTPUT_DIR"
@@ -27,7 +26,6 @@ create_output_dir() {
     fi
 }
 
-# 2. Поиск последнего собранного лог-файла
 find_latest_log() {
     LATEST_LOG=$(ls -t "$INPUT_DIR"/collected_logs_*.log 2>/dev/null | head -n1)
     if [ -z "$LATEST_LOG" ]; then
@@ -37,7 +35,6 @@ find_latest_log() {
     echo "[INFO]: Обработка файла: $LATEST_LOG"
 }
 
-# 3. Проверка, что файл ещё не обработан (с проверкой наличия JSON)
 check_if_processed() {
     if [ -f "$PROCESSED_MARKER" ] && grep -q "^$LATEST_LOG$" "$PROCESSED_MARKER"; then
         local json_file=$(ls -t "$OUTPUT_DIR"/normalized_*.json 2>/dev/null | head -n1)
@@ -54,7 +51,6 @@ check_if_processed() {
     fi
 }
 
-# 4. Проверка, есть ли события sshd в логах
 check_has_events() {
     if ! grep -q "sshd" "$LATEST_LOG"; then
         echo "[WARN]: В логах нет событий sshd."
@@ -63,7 +59,6 @@ check_has_events() {
     fi
 }
 
-# 5. Парсинг через AWK (исправленная версия)
 parse_logs_with_awk() {
     local input_file="$1"
 
@@ -121,15 +116,12 @@ parse_logs_with_awk() {
             event_type = "server_started"
         }
 
-        
-        # message — извлекаем правильно для всех случаев
+        # message — всё, что после последнего :
         message = ""
         pos = index($0, "]:")
         if (pos > 0) {
-            # Если есть ]: — берём после него (стандартный случай)
             message = substr($0, pos + 2)
         } else {
-            # Иначе ищем после последнего :
             pos = match($0, /:[^:]*$/)
             if (pos > 0) {
                 message = substr($0, pos + 2)
@@ -139,7 +131,6 @@ parse_logs_with_awk() {
         }
         gsub(/"/, "\\\"", message)
 
-
         # user — ищем после "user " или "user="
         user = "unknown"
         if (match($0, /user [^ ]+/)) {
@@ -148,62 +139,75 @@ parse_logs_with_awk() {
             user = substr($0, RSTART + 5, RLENGTH - 5)
         }
 
-        # --- ФОРМИРУЕМ JSON СТРОКУ ---
+        # --- ПРАВИЛЬНАЯ СТРУКТУРА JSON ---
         if (!first) {
             print ","
         }
         first = 0
 
-        printf "  \"event\": {\n"
-        printf "    \"timestamp\": \"%s\",\n", timestamp
-        printf "    \"service\": \"sshd\",\n"
-        printf "    \"pid\": %s,\n", pid
-        printf "    \"event_type\": \"%s\",\n", event_type
-        printf "    \"message\": \"%s\",\n", message
-        printf "    \"user\": \"%s\",\n", user
-        printf "    \"src_ip\": \"%s\",\n", ip
-        printf "    \"port\": %s\n", port
+        printf "  {\n"
+        printf "    \"event\": {\n"
+        printf "      \"timestamp\": \"%s\",\n", timestamp
+        printf "      \"service\": \"sshd\",\n"
+        printf "      \"pid\": %s,\n", pid
+        printf "      \"event_type\": \"%s\",\n", event_type
+        printf "      \"message\": \"%s\",\n", message
+        printf "      \"user\": \"%s\",\n", user
+        printf "      \"src_ip\": \"%s\",\n", ip
+        printf "      \"port\": %s\n", port
+        printf "    }\n"
         printf "  }"
     }
     ' "$input_file"
 }
 
-# 6. Основная функция нормализации
 normalize_logs() {
     local start_time=$(date +%s%N)
 
     echo "[INFO]: Начинаю обработку..."
 
-    # Получаем общее количество строк
     local total_lines=$(wc -l < "$LATEST_LOG")
     echo "[INFO]: Всего строк в файле: $total_lines"
 
-    # Проверяем, есть ли события sshd
     if ! grep -q "sshd" "$LATEST_LOG"; then
         echo "[WARN]: В логах нет событий sshd."
         echo "[INFO]: JSON не создан."
         return 1
     fi
 
-    # Запускаем парсер и сохраняем вывод
     local json_output
     json_output=$(parse_logs_with_awk "$LATEST_LOG")
 
-    # Проверяем, есть ли данные
     if [ -z "$json_output" ]; then
         echo "[WARN]: Не удалось распарсить события."
         echo "[INFO]: JSON не создан."
         return 1
     fi
 
-    # Записываем JSON в файл
+    # --- СОХРАНЯЕМ ВО ВРЕМЕННЫЙ ФАЙЛ И ПРОВЕРЯЕМ ЧЕРЕЗ jq ---
+    local tmp_json=$(mktemp)
     {
         echo "["
         echo "$json_output"
         echo "]"
-    } > "$OUTPUT_FILE"
+    } > "$tmp_json"
 
-    # Отмечаем файл как обработанный
+    if command -v jq &> /dev/null; then
+        if jq empty "$tmp_json" 2>/dev/null; then
+            echo "[INFO]: JSON валидный. Сохраняю..."
+            mv "$tmp_json" "$OUTPUT_FILE"
+        else
+            echo "[ERROR]: JSON НЕ ВАЛИДНЫЙ!"
+            echo "[ERROR]: Проверьте структуру JSON."
+            rm -f "$tmp_json"
+            return 1
+        fi
+    else
+        echo "[WARN]: jq не установлен. Пропускаю проверку валидности."
+        echo "[INFO]: Установите jq: sudo apt install jq -y"
+        mv "$tmp_json" "$OUTPUT_FILE"
+    fi
+
     echo "$LATEST_LOG" >> "$PROCESSED_MARKER"
 
     local end_time=$(date +%s%N)
@@ -220,7 +224,6 @@ normalize_logs() {
     echo "[STATS]: Время обработки: $(format_time $elapsed_sec $elapsed_ms)"
 }
 
-# 7. Форматирование времени
 format_time() {
     local seconds=$1
     local millis=$2
@@ -233,7 +236,7 @@ format_time() {
 # --- ОСНОВНАЯ ЛОГИКА ---
 
 echo "================================"
-echo " Classic SIEM Normalizer v0.2.1"
+echo " Classic SIEM Normalizer v0.2.2"
 echo "================================"
 
 create_output_dir
