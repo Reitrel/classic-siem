@@ -71,9 +71,10 @@ chmod +x src/collector.sh
 ```
 
 После сбора логов запусти нормализацию:
+```bash
 chmod +x src/normalizer.sh
 ./src/normalizer.sh
-
+```
 ---
 
 ## 📌 Статус разработки
