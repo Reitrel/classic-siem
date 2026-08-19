@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Classic-SIEM orchestrator daily at midnight
+Requires=classic-siem.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
