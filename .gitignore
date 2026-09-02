@@ -1,3 +1,5 @@
 logs/
 normalized/
 processed_marker.txt
+alerts/
+cron.log

@@ -2,8 +2,8 @@
 
 # ============================================================
 # Classic SIEM — Оркестратор
-# Версия: 1.1
-# Назначение: последовательный запуск модулей Collector → Normalizer
+# Версия: 1.2
+# Назначение: последовательный запуск Collector → Normalizer → Correlator
 # Автор: Денис Алексеев / Classic SIEM
 # Лицензия: GNU GPL v3.0
 # ============================================================
@@ -24,36 +24,53 @@ if ! flock -n 200; then
     exit 1
 fi
 
-# --- 2. ОСНОВНАЯ ЛОГИКА ---
+# --- 2. ОЧИСТКА СТАРЫХ ЛОГОВ (автоматическая) ---
+echo "[INFO]: $(date): Удаляю логи старше 7 дней..."
+find ./logs/ -name "*.log" -mtime +7 -delete
+find ./normalized/ -name "*.json" -mtime +7 -delete
+find ./alerts/ -name "*.txt" -mtime +7 -delete
+echo "[INFO]: Очистка завершена."
+
+# --- 3. ОСНОВНАЯ ЛОГИКА ---
 echo "[INFO]: $(date): Запуск оркестратора Classic SIEM"
 echo "[INFO]: Рабочая директория: $(pwd)"
 
-# --- 2.1. Запуск Collector ---
+# --- 3.1. Запуск Collector ---
 echo "[INFO]: Запуск Collector..."
 ./src/collector.sh
 
 if [ $? -eq 0 ]; then
     echo "[INFO]: Collector завершён успешно."
 
-    # --- 2.2. Запуск Normalizer ---
+    # --- 3.2. Запуск Normalizer ---
     echo "[INFO]: Запуск Normalizer..."
     ./src/normalizer.sh
 
     if [ $? -eq 0 ]; then
         echo "[INFO]: Normalizer завершён успешно."
+
+        # --- 3.3. Запуск Correlator ---
+        echo "[INFO]: Запуск Correlator..."
+        ./src/correlator.sh
+
+        if [ $? -eq 0 ]; then
+            echo "[INFO]: Correlator завершён успешно."
+        else
+            echo "[ERROR]: $(date): Correlator завершён с ошибкой!"
+            exit 1
+        fi
+
     else
         echo "[ERROR]: $(date): Normalizer завершён с ошибкой!"
         exit 1
     fi
 
 else
-    echo "[ERROR]: $(date): Collector завершён с ошибкой! Normalizer не запущен."
+    echo "[ERROR]: $(date): Collector завершён с ошибкой!"
     exit 1
 fi
 
-# --- 2.3. (Будущие модули) Correlator, Alerter, ... ---
-
 echo "[INFO]: $(date): Все модули отработали успешно."
 
-# --- 3. ЗАВЕРШЕНИЕ ---
+# --- 4. ЗАВЕРШЕНИЕ ---
 exit 0
